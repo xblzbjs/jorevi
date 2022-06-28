@@ -1,0 +1,60 @@
+exclude: "^docs/|/migrations/"
+default_language_version:
+  python: python3.9
+default_stages: [commit]
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  # security linter
+  - repo: https://github.com/pycqa/bandit
+    rev: 1.7.4
+    hooks:
+      - id: bandit
+        args: ["-iii", "-ll", --skip, "B703,B308"]
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.32.1
+    hooks:
+      - id: pyupgrade
+        args: ["--py38-plus", "--py39-plus"]
+
+  - repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        args: ["--profile", "black", "--filter-files"]
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
+    hooks:
+      - id: flake8
+        args: ["--config=setup.cfg"]
+        addition_dependencies:
+          [
+            "flake8-bugbear",
+            "flake8-comprehensions",
+            "flake8-simplify",
+            "flake8-pytest-style",
+            "pep8-naming",
+          ]
+
+# sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date.
+ci:
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false
