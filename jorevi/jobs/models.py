@@ -1,10 +1,10 @@
 import uuid
 
 from django.conf import settings
-from django.contrib.gis.db import models
 from django.contrib.postgres.fields import BigIntegerRangeField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVectorField
+from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import TimeStampedModel
