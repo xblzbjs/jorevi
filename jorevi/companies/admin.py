@@ -7,6 +7,23 @@ from tinymce.widgets import TinyMCE
 
 from jorevi.companies.models import Company
 from jorevi.companies.resources import CompanyExportResource
+from jorevi.jobs.models import Job
+
+
+class JobInline(admin.TabularInline):
+    model = Job
+    fields = (
+        "title",
+        "category",
+        "type",
+        "salary",
+        "status",
+        "creator",
+    )
+    classes = ("grp-collapse grp-open",)
+    # status='published' should be first
+    ordering = ["-status"]
+    extra = 0
 
 
 @admin.register(Company)
