@@ -22,7 +22,7 @@ class Company(models.Model):
     phone = PhoneNumberField(_("phone"), null=True, unique=True)
     overview = HTMLField(_("overview"), blank=True, null=True)
     logo = ImageField(_("logo"), upload_to="company/logos/")
-    country = CountryField(null=True)
+    country = CountryField(blank_label=_("(select country)"), null=True)
 
     is_verified = models.BooleanField(_("verfied status"), default=False)
 
