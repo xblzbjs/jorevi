@@ -96,6 +96,7 @@ LOCAL_APPS = [
     "jorevi.users.apps.UsersConfig",
     "jorevi.blog.apps.BlogConfig",
     "jorevi.companies.apps.CompaniesConfig",
+    "jorevi.jobs.apps.JobsConfig",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
