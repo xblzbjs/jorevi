@@ -36,6 +36,12 @@ class Company(models.Model):
     def __str__(self):
         return f"{self.name}"
 
+    def total_jobs(self) -> int:
+        return self.jobs.count()
+
+    def open_jobs(self) -> int:
+        return self.jobs.get_published().count()
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
