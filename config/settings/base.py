@@ -95,6 +95,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "jorevi.users.apps.UsersConfig",
     "jorevi.blog.apps.BlogConfig",
+    "jorevi.companies.apps.CompaniesConfig",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
