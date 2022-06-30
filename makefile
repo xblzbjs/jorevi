@@ -41,4 +41,17 @@ requirements: ## Generate dev and prod requirements
 	poetry export --without-hashes --format=requirements.txt > requirements.txt
 	poetry export --without-hashes --dev --format=requirements.txt > requirements-dev.txt
 
+fake_blog: ## Generate fake blog data
+	poetry run python manage.py fake_blog
+
+fake_company: ## Generate fake company data
+	poetry run python manage.py fake_company 50
+
+fake_user: ## Generate fake user data
+	poetry run python manage.py fake_user 30
+
+fake_job: ## Generate fake job data
+	poetry run python manage.py fake_job 2000 --delete
+
 start: install check migration migrate run ## Install requirements, apply migrations, then start development server
+fake_data: fake_user fake_company fake_blog fake_job

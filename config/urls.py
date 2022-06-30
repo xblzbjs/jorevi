@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path, re_path
+from django.urls import include, path
 from django.utils.translation import gettext_lazy as _
 from filebrowser.sites import site
 from rest_framework.authtoken.views import obtain_auth_token
@@ -18,11 +18,9 @@ urlpatterns = [
     # TinyMCE
     path("tinymce/", include("tinymce.urls")),
     # Django Admin
-    path(f"{settings.ADMIN_URL}filebrowser/", site.urls),
+    path(f"{settings.ADMIN_URL}/filebrowser/", site.urls),
     path("grappelli/", include("grappelli.urls")),
-    path(settings.ADMIN_URL, admin.site.urls),
-    # Markdownx
-    re_path(r"^markdownx/", include("markdownx.urls")),
+    path(f"{settings.ADMIN_URL}/", admin.site.urls),
     # API
     path("api/", include(("config.api_router", "api"), namespace="api"), name="api"),
     path("api/auth-token/", obtain_auth_token),

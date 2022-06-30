@@ -1,4 +1,3 @@
-from datetime import datetime
 from pathlib import Path
 
 import environ
@@ -84,7 +83,6 @@ THIRD_PARTY_APPS = [
     "tinymce",
     "reversion",
     "taggit",
-    "markdownx",
     "sorl.thumbnail",
     "phonenumber_field",
     "import_export",
@@ -96,6 +94,9 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "jorevi.users.apps.UsersConfig",
+    "jorevi.blog.apps.BlogConfig",
+    "jorevi.companies.apps.CompaniesConfig",
+    "jorevi.jobs.apps.JobsConfig",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -414,29 +415,6 @@ REST_FRAMEWORK = {
 CORS_URLS_REGEX = r"^/api/.*$"
 
 
-# django-markdownx - https://github.com/neutronX/django-markdownx
-MARKDOWNX_MARKDOWNIFY_FUNCTION = "markdownx.utils.markdownify"
-MARKDOWNX_MARKDOWN_EXTENSION_CONFIGS = {}
-MARKDOWNX_URLS_PATH = "/markdownx/markdownify/"
-MARKDOWNX_UPLOAD_URLS_PATH = "/markdownx/upload/"
-MARKDOWNX_MEDIA_PATH = datetime.now().strftime("markdownx/%Y/%m/%d")
-MARKDOWNX_UPLOAD_MAX_SIZE = 5 * 1024 * 1024
-MARKDOWNX_UPLOAD_CONTENT_TYPES = ["image/jpeg", "image/png", "image/svg+xml"]
-MARKDOWNX_IMAGE_MAX_SIZE = {
-    "size": (800, 500),
-    "quality": 100,
-}
-MARKDOWNX_EDITOR_RESIZABLE = True
-MARKDOWNX_MARKDOWN_EXTENSIONS = [
-    "markdown.extensions.fenced_code",
-    "markdown.extensions.codehilite",
-    "markdown.extensions.smarty",
-    "markdown.extensions.extra",
-    "markdown.extensions.tables",
-    "markdown.extensions.sane_lists",
-]
-
-
 # django-tinymce https://django-tinymce.readthedocs.io/en/latest/installation.html#configuration
 TINYMCE_DEFAULT_CONFIG = {
     "mode": "textarea",
@@ -486,3 +464,33 @@ IMPORT_EXPORT_CHUNK_SIZE = 100
 PHONENUMBER_DB_FORMAT = "E164"  # default
 PHONENUMBER_DEFAULT_REGION = None  # default
 PHONENUMBER_DEFAULT_FORMAT = "E164"  # default
+
+# django-countries
+# Only these countries(for now)
+COUNTRIES_ONLY = [
+    "NO",
+    "GB",  # United Kingdom of Great Britain and Northern Ireland
+    "CH",
+    "HK",
+    "IS",
+    "DE",
+    "SE",
+    "AU",
+    "NL",
+    "DK",
+    "FI",
+    "SG",
+    "BE",
+    "NZ",
+    "CA",
+    "US",
+    "AT",
+    "IL",
+    "JP",
+    "LI",
+    "SI",
+    "LU",
+    "ES",
+    "TW",
+    "CN",
+]
