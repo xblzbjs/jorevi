@@ -44,4 +44,7 @@ requirements: ## Generate dev and prod requirements
 fake_blog: ## Generate fake blog data
 	poetry run python manage.py fake_blog
 
+fake_company: ## Generate fake company data
+	poetry run python manage.py fake_company 50
+
 start: install check migration migrate run ## Install requirements, apply migrations, then start development server
