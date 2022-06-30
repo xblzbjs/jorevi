@@ -463,3 +463,33 @@ IMPORT_EXPORT_CHUNK_SIZE = 100
 PHONENUMBER_DB_FORMAT = "E164"  # default
 PHONENUMBER_DEFAULT_REGION = None  # default
 PHONENUMBER_DEFAULT_FORMAT = "E164"  # default
+
+# django-countries
+# Only these countries(for now)
+COUNTRIES_ONLY = [
+    "NO",
+    "GB",  # United Kingdom of Great Britain and Northern Ireland
+    "CH",
+    "HK",
+    "IS",
+    "DE",
+    "SE",
+    "AU",
+    "NL",
+    "DK",
+    "FI",
+    "SG",
+    "BE",
+    "NZ",
+    "CA",
+    "US",
+    "AT",
+    "IL",
+    "JP",
+    "LI",
+    "SI",
+    "LU",
+    "ES",
+    "TW",
+    "CN",
+]
