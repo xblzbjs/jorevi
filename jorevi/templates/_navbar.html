@@ -1,0 +1,50 @@
+{% load static i18n %}
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="{% url 'home' %}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <h2><strong>Jorevi</strong></h2>
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">Jobs</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">Companies</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+    </ul>
+    {% if request.user.is_authenticated %}
+    <div class="col-md-3 text-end">
+      <div class="row">
+        <div class="col-md-8">
+          <a href="#" class="btn btn-primary">Post a job</a>
+        </div>
+        <div class="col-md-4 dropdown">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a href="{% url 'account_logout' %}"
+                   class="dropdown-item"
+                   data-bs-toggle="modal" data-bs-target="#signOutModal"
+                 >{% translate "Sign Out" %}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="col-md-3 text-end">
+      <a href="{% url 'account_login' %}"
+         type="button" class="btn btn-outline-primary me-2"
+         >Login
+      </a>
+      <a href="{% url 'account_signup' %}"
+         type="button" class="btn btn-primary"
+         >Sign-up
+      </a>
+    </div>
+    {% endif %}
+  </header>
+</div>
