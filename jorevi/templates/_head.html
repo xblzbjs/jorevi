@@ -1,0 +1,29 @@
+{% load static compress%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}Jorevi{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Remote job website">
+    <meta name="author" content="xblzbjs">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+    <link rel="icon" href="{% static 'favicon/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+
+    {% block css %}
+      <!-- Bootstrap5 core CSS -->{% compress css %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" >{% endcompress %}
+    {% endblock %}
+
+    {% block javascript %}
+      <!-- Bootstrap5 JS-->{% compress js %}
+      <script defer src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+      <!-- TinyMCE JS-->
+      <script defer src="{% static "tinymce/tinymce.min.js" %}"></script>{% endcompress %}
+    {% endblock javascript %}
+
+</head>
