@@ -299,11 +299,15 @@ ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "/"
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400  # 1 day in seconds
 ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login/"
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_ADAPTER = "jorevi.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
 ACCOUNT_FORMS = {
     "signup": "jorevi.users.forms.UserSignupForm",
     "login": "jorevi.users.forms.UserLoginForm",
+    "reset_password": "jorevi.users.forms.UserResetPasswordForm",
+    "change_password": "jorevi.users.forms.UserChangePasswordForm",
+    "reset_password_from_key": "jorevi.users.forms.UserResetPasswordKeyForm",
 }
 
 

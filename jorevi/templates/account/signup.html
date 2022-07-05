@@ -1,0 +1,33 @@
+{% extends 'account/base.html' %}
+
+{% load static crispy_forms_tags i18n %}
+
+{% block content %}
+
+<div class="d-flex bg-image"
+      style="background-image: url('{% static 'image/sign-up-background.jpg' %}');
+            background-size: 100% auto;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;"
+  >
+  <div class="container col-xl-10 col-xxl-8">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start text-white">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Welcome to join us!</h1>
+        <p class="col-lg-10 fs-4">
+          Let Jorevi find the best remote opportunities that are tailored to you.
+        </p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        {% crispy form %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+</body>
+</html>
