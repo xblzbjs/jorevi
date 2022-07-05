@@ -14,7 +14,8 @@
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
 
     {% block css %}
-      <!-- Bootstrap5 core CSS -->{% compress css %}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+      <!-- Bootstrap5 CSS -->{% compress css %}
       <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" >{% endcompress %}
     {% endblock %}
 
