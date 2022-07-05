@@ -40,7 +40,7 @@ class Command(BaseCommand):
         self.stdout.write("Create new jobs...")
         for _ in range(total):
             JobFactory(
-                company=FuzzyChoice(Company.objects.get_vertified()),
+                company=FuzzyChoice(Company.objects.get_verified()),
                 creator=FuzzyChoice(User.objects.all()),
             )
         self.stdout.write("Create jobs successfully")
